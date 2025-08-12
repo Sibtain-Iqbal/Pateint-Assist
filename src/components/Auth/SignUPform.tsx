@@ -10,7 +10,6 @@ export default function SignUpForm({ userType, onSubmit }: SignUpFormProps) {
     email: "",
     password: "",
     name: "",
-    license: "",
   });
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -62,20 +61,7 @@ export default function SignUpForm({ userType, onSubmit }: SignUpFormProps) {
           required
         />
       </div>
-      {userType === "doctor" && (
-        <div>
-          <label className="block text-sm font-medium mb-1">Medical License</label>
-          <input
-            type="text"
-            name="license"
-            value={formData.license}
-            onChange={handleChange}
-            placeholder="Enter license number"
-            className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
-            required
-          />
-        </div>
-      )}
+      
       <button
         type="submit"
         className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600"
