@@ -8,9 +8,9 @@ export default function SignUpPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       <AuthModal 
-        show={showModal} 
+        isOpen={showModal} 
         onClose={() => setShowModal(false)}
-        initialMode="signup"
+        // initialMode="signup"
       />
     </div>
   );

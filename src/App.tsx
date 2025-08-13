@@ -10,12 +10,15 @@ import { useState } from "react";
 import { Footer } from "./Pages/Footer";
 import MedicalSpecialties from "./Pages/MedicalSpecialties";
 import Doctors from "./Pages/FindDoctor";
-
+import { QueryClient,QueryClientProvider } from "@tanstack/react-query";
 
 function App() {
   const [showModal, setShowModal] = useState(false);
 
+  const queryclient = new QueryClient()
+
   return (
+
     <Router>
       <div className="min-h-screen flex flex-col">
         <Navbar showModal={showModal} setShowModal={setShowModal} />
