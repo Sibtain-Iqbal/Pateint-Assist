@@ -24,3 +24,33 @@ export interface CtaSectionProps {
   buttonText: string;
   buttonLink: string;
 }
+
+export interface HomeProps {
+  showModal: boolean;
+  setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export interface NavbarProps  {
+  showModal: boolean;
+  setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+
+export interface User {
+   id: string;
+  name: string;
+  email: string;
+  role: 'patient' | 'doctor';
+  accessToken: string;
+}
+
+
+export interface LoginCredentials {
+   email: string;
+  password: string;
+}
+
+export interface SignUpCredentials extends LoginCredentials {
+  name: string;
+  role: 'patient' | 'doctor';
+}

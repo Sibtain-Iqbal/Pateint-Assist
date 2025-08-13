@@ -6,9 +6,12 @@ export default function SignInPage () {
 return <>
 
 <div className="min-h-screen bg-gray-50">
-  <AuthModal show={showmodal} onClose={()=>setshowmodal(false)} initialMode="signin"/>
+  <AuthModal isOpen={showmodal} onClose={()=>setshowmodal(false)} />
 </div>
 
 
 </>
 }
+
+
+  

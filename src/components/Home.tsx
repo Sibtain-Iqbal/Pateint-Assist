@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
-import FeatureCard from "./Stats/FeatureCard";
-import CtaSection from "./Stats/CtaSection";
+import FeatureCard from "./Home-card-Stats/FeatureCard";
+import CtaSection from "./Home-card-Stats/CtaSection";
+import type { HomeProps } from "./Types";
 
 
 import {
@@ -14,14 +15,11 @@ import {
     FaClock,
     FaPlus
 } from "react-icons/fa";
-import StatsCardS from "./Stats/StatsCard";
-import TestimonialCard from "./Stats/testtimonials";
+import StatsCardS from "./Home-card-Stats/StatsCard";
+import TestimonialCard from "./Home-card-Stats/testtimonials";
 import AuthModal from "./Auth/AuthModel";
 
-type HomeProps = {
-    showModal: boolean;
-    setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
-};
+
 
 
 
@@ -123,8 +121,9 @@ export default function Home({ setShowModal, showModal }: HomeProps) {
                 </div>
             </section>
             <AuthModal
-                show={showModal}
-                onClose={() => setShowModal(false)}
+               isOpen={showModal}
+        onClose={() => setShowModal(false)}
+
 
             />
             <section className="bg-blue-100 py-12 rounded-3xl">
