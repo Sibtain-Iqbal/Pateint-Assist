@@ -1,5 +1,5 @@
 import { useState } from "react";
-import AuthModal from "@/components/Auth/AuthModel";
+import AuthModal from "@/components/Home-Comp/SignIn-SignUp/AuthModel";
 
 export default function SignInPage () {
   const [showmodal ,setshowmodal] = useState(true)

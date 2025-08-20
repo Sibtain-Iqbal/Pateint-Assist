@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import FeatureCard from "./Home-card-Stats/FeatureCard";
-import CtaSection from "./Home-card-Stats/CtaSection";
-import type { HomeProps } from "./Types";
+import FeatureCard from "../Home-card-Stats/FeatureCard";
+import CtaSection from "../Home-card-Stats/CtaSection";
+import type { HomeProps } from "../../../Types/Types";
 
 
 import {
@@ -15,9 +15,9 @@ import {
     FaClock,
     FaPlus
 } from "react-icons/fa";
-import StatsCardS from "./Home-card-Stats/StatsCard";
-import TestimonialCard from "./Home-card-Stats/testtimonials";
-import AuthModal from "./Auth/AuthModel";
+import StatsCardS from "../Home-card-Stats/StatsCard";
+import TestimonialCard from "../Home-card-Stats/testtimonials";
+import AuthModal from "../SignIn-SignUp/AuthModel";
 
 
 
@@ -109,12 +109,12 @@ export default function Home({ setShowModal, showModal }: HomeProps) {
 
 
 
-                    <button
+                   <Link to={"login"}> <button
                         onClick={() => setShowModal(true)}
                         className="bg-[#53aec5] text-white px-4 py-2 rounded hover:bg-blue-600 shadow-2xl "
                     >
                         Getting Started
-                    </button>
+                    </button></Link>
 
                     <button className=" px-4 py-2 rounded-lg bg-white/30 backdrop-blur-md text-black shadow-lg hover:bg-blue-300 hover:text-red-500"
                     >Learn More</button>
@@ -160,7 +160,6 @@ export default function Home({ setShowModal, showModal }: HomeProps) {
                 </div>
             </section>
 
-            {/* Quick Actions */}
             <section className="max-w-4xl mx-auto px-4">
                 <h3 className="text-xl font-semibold mb-6 text-center md:text-left">Quick Access</h3>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -177,7 +176,6 @@ export default function Home({ setShowModal, showModal }: HomeProps) {
                 </div>
             </section>
 
-            {/* Testimonials Section */}
             <section className="max-w-6xl mx-auto px-4 py-12 bg-gray-50 rounded-xl">
                 <h3 className="text-2xl font-bold text-center mb-8">What Our Users Say</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -192,13 +190,11 @@ export default function Home({ setShowModal, showModal }: HomeProps) {
                 </div>
             </section>
 
-            {/* CTA Section */}
             <section className="max-w-6xl mx-auto px-4">
                 <CtaSection
                     title="Ready to take control of your health?"
                     description="Join thousands of patients who trust our platform for their healthcare needs."
-                    buttonText="Sign Up Now"
-                    buttonLink="/signup"
+                  
                 />
             </section>
         </div>

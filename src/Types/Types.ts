@@ -1,11 +1,45 @@
 export type UserType = "patient" | "doctor";
 
-export interface AuthFormData {
+// export interface AuthFormData {
+//   name: string;
+//   email: string;
+//   password: string;
+//   confirmPassword: string;
+//   phone: string;
+//   age: string;
+//   gender: string;
+//   address: string;
+//   specialization?: string;
+//   degree?: string;
+//   experience?: string;
+//   availability?: string;
+// }
+
+export interface BaseAuthFormData {
+  name: string;
   email: string;
   password: string;
-  name?: string;
-  license?: string;
+  confirmPassword: string;
+  phone: string;
+  age: string;
+  gender: string;
+  address: string;
+  image?: File | string;
 }
+
+export interface PatientFormData extends BaseAuthFormData {
+  role?: "patient";
+}
+
+export interface DoctorFormData extends BaseAuthFormData {
+  role?: "doctor";
+  specialization: string;
+  degree: string;
+  experience: string;
+  availability?: string;
+}
+
+export type AuthFormData = PatientFormData | DoctorFormData;
 
 export interface  StatsCardProps { 
   value : string;
@@ -21,8 +55,7 @@ export interface FeatureCardProps {
 export interface CtaSectionProps {
   title: string;
   description: string;
-  buttonText: string;
-  buttonLink: string;
+
 }
 
 export interface HomeProps {

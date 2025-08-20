@@ -1,8 +1,8 @@
 import { Heart } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import AuthModal from "../Auth/AuthModel";
-import type { NavbarProps } from "../Types";
+import AuthModal from "../SignIn-SignUp/AuthModel";
+import type { NavbarProps } from "../../../Types/Types";
 
 
 

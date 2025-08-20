@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 
-import AuthModal from "@/components/Auth/AuthModel";
+import AuthModal from "@/components/Home-Comp/SignIn-SignUp/AuthModel";
 export default function SignUpPage() {
   const [showModal, setShowModal] = useState(true);
 
