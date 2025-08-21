@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import SignInPage from "./components/Home-Comp/Pages/SignIn";
-import SignUpPage from "./components/Home-Comp/Pages/SignUp";
+import SignInPage from "./components/Home-Comp/SignIn-SignUp/SignIn";
+import SignUpPage from "./components/Home-Comp/SignIn-SignUp/SignUp";
 import DoctorDashboard from "./components/Doctor/DoctorDashboard";
 import PatientDashboard from "./components/Patient/PatientDashboard";
 import NotFoundPage from "./components/Home-Comp/ui/NotFoundPage";
@@ -13,6 +13,8 @@ import Doctors from "./components/Home-Comp/Pages/FindDoctor";
 import { QueryClient,QueryClientProvider } from "@tanstack/react-query";
 import Home from "./components/Home-Comp/ui/Home";
 
+import {ToastContainer} from "react-toastify"
+
 
 function App() {
   const [showModal, setShowModal] = useState(false);
@@ -22,6 +24,7 @@ function App() {
   return (
 
     <QueryClientProvider client={queryclient}>
+      <ToastContainer/>
       <Router>
       <div className="min-h-screen flex flex-col">
         <Navbar showModal={showModal} setShowModal={setShowModal} />
@@ -41,6 +44,7 @@ function App() {
         <Footer />
       </div>
     </Router>
+    
 
     </QueryClientProvider>
   );

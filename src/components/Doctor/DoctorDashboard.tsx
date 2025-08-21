@@ -1,18 +1,27 @@
 // components/DoctorDashboard.tsx
 import { Calendar,User, Video } from "lucide-react";
-import { useAuth } from "@/Context/AuthContext";
-const DoctorDashboard = () => {
-  const { user, logout } = useAuth();
+import { Navigate, useNavigate } from "react-router-dom";
 
+
+
+
+const DoctorDashboard = () => {
+  const navvigate = useNavigate()
+  const handlelogout = ()=>{
+    localStorage.removeItem("token")
+    navvigate("/home")
+    
+  }
   return (
     <div className="min-h-screen bg-gray-50">
       <header className="bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-4 py-4 sm:px-6 lg:px-8 flex justify-between items-center">
           <h1 className="text-xl font-bold text-gray-900">Doctor Dashboard</h1>
           <div className="flex items-center space-x-4">
-            <span className="text-gray-600">Welcome, Dr. {user?.name}</span>
+            <span className="text-gray-600">Welcome, Dr. </span>
             <button 
-              onClick={logout}
+            onClick={handlelogout}
+             
               className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
             >
               Logout
@@ -20,7 +29,7 @@ const DoctorDashboard = () => {
           </div>
         </div>
       </header>
-
+      
       <main className="max-w-7xl mx-auto px-4 py-6 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {/* Appointments Card */}
