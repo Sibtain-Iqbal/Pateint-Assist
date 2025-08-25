@@ -24,7 +24,7 @@ import AuthModal from "../SignIn-SignUp/AuthModel";
 
 
 export default function Home({ setShowModal, showModal }: HomeProps) {
-    // Data for stats section
+
     const stats = [
         { value: "500+", label: "Doctors", icon: <FaUserMd className="inline mr-2" /> },
         { value: "10K+", label: "Patients", icon: <FaUserMd className="inline mr-2" /> },
@@ -109,13 +109,12 @@ export default function Home({ setShowModal, showModal }: HomeProps) {
 
 
 
-                   <Link to={"login"}> <button
+                  <button
                         onClick={() => setShowModal(true)}
                         className="bg-[#53aec5] text-white px-4 py-2 rounded hover:bg-blue-600 shadow-2xl "
                     >
                         Getting Started
-                    </button></Link>
-
+                    </button>
                     <button className=" px-4 py-2 rounded-lg bg-white/30 backdrop-blur-md text-black shadow-lg hover:bg-blue-300 hover:text-red-500"
                     >Learn More</button>
                 </div>
