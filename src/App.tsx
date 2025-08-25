@@ -73,7 +73,6 @@ import { Footer } from "./components/Home-Comp/Pages/Footer";
 import MedicalSpecialties from "./components/Home-Comp/Pages/MedicalSpecialties";
 import Doctors from "./components/Home-Comp/Pages/FindDoctor";
 import Home from "./components/Home-Comp/ui/Home";
-
 import ProtectedRoutes from "./components/ProtectedRoutes/ProtectedRoutes";
 
 function App() {
