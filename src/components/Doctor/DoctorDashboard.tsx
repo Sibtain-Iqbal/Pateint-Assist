@@ -1,5 +1,5 @@
-// components/DoctorDashboard.tsx
-import { Routes, Route } from "react-router-dom";
+// components/Doctor/DoctorDashboard.tsx
+import { Routes, Route, Navigate } from "react-router-dom";
 import Sidebar from "./Layout/Sidebar";
 import Header from "./Layout/Header";
 import Overview from "../../Pages/Doctor/Overview";
@@ -16,11 +16,13 @@ const DoctorDashboard = () => {
         <Header title="Doctor Dashboard" />
         <div className="flex-1">
           <Routes>
-            <Route path="/" element={<Overview />} />
-            <Route path="/appointments" element={<Appointments />} />
-            <Route path="/patients" element={<Patients />} />
-            <Route path="/availability" element={<Availability />} />
-            <Route path="/profile" element={<Profile />} />
+            {/* Default: /doctor-dashboard -> /doctor-dashboard/overview */}
+            <Route index element={<Navigate to="overview" replace />} />
+            <Route path="overview" element={<Overview />} />
+            <Route path="appointments" element={<Appointments />} />
+            <Route path="patients" element={<Patients />} />
+            <Route path="availability" element={<Availability />} />
+            <Route path="profile" element={<Profile />} />
           </Routes>
         </div>
       </div>
