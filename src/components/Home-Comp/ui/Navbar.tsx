@@ -8,7 +8,6 @@ import type { NavbarProps } from "../../../Types/Types";
 
 const handleAuthSuccess = (userType: "patient" | "doctor") => {
   console.log(`Authenticated as ${userType}`);
-  // Handle successful authentication (e.g., redirect, set user state)
 };
 
 
@@ -88,8 +87,6 @@ export default function Navbar({ showModal, setShowModal }: NavbarProps) {
       <AuthModal
         isOpen={showModal}
         onClose={() => setShowModal(false)}
-
-        onAuthenticated={handleAuthSuccess}
 
       />
     </>
