@@ -1,4 +1,5 @@
 
+
 export const signupUser = async (formData: FormData, userType: "patient" | "doctor") => {
   const apiEndpoint = userType === "doctor"
     ? "http://localhost:5000/api/v1/doctor/createDoctor"
@@ -51,5 +52,33 @@ export const signinUser = async (credentials: object, userType: "patient" | "doc
       throw new Error(`Server responded with an error: ${response.status} ${response.statusText}`);
     }
   }
+  return await response.json();
+};
+
+export const HandleGoogleLogin = async (credential: string, userType: "patient" | "doctor") => {
+  const apiEndpoint = userType === "patient"
+    ? "http://localhost:5000/api/v1/patient/googleLoginPatient"
+    : "http://localhost:5000/api/v1/doctor/googleLoginDoctor"; 
+
+  const response = await fetch(apiEndpoint, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ credential })
+  });
+
+  if (!response.ok) {
+    const contentType = response.headers.get("content-type");
+    if (contentType && contentType.includes("application/json")) {
+      const errorData = await response.json();
+      throw new Error(errorData.message || "Google login failed.");
+    } else {
+      const errorText = await response.text();
+      console.error("Non-JSON server error:", errorText);
+      throw new Error(`Server responded with an error: ${response.status} ${response.statusText}`);
+    }
+  }
+  
   return await response.json();
 };

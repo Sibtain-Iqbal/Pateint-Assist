@@ -1,5 +1,5 @@
 // src/pages/Overview.tsx
-import StatCard from "../../Components/Doctor/Layout/StatCard";
+import StatCard from "../../components/Doctor/Layout/StatCard";
 import { FaCalendarAlt, FaUsers, FaDollarSign } from "react-icons/fa";
 
 const Overview = () => {
