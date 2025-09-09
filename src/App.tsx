@@ -1,4 +1,4 @@
-// App.tsx
+
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -36,7 +36,6 @@ function App() {
             <Route path="/medical-specialties" element={<MedicalSpecialties />} />
 
             <Route element={<ProtectedRoutes />}>
-              {/* NOTE the /* here */}
               <Route path="/doctor-dashboard/*" element={<DoctorDashboard />} />
               <Route path="/patient-dashboard/*" element={<PatientDashboard />} />
             </Route>
@@ -49,7 +48,7 @@ function App() {
     );
   };
 
-  return (
+  return (    
     <QueryClientProvider client={queryclient}>
       <ToastContainer />
       <Router>

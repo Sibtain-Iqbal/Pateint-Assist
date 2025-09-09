@@ -10,9 +10,7 @@ export const signupUser = async (formData: FormData, userType: "patient" | "doct
     body: formData,
   });
 
-  // Check if the response is successful
   if (!response.ok) {
-    // Attempt to parse JSON error message. If it fails, provide a generic error.
     const contentType = response.headers.get("content-type");
     if (contentType && contentType.includes("application/json")) {
       const errorData = await response.json();
@@ -24,7 +22,7 @@ export const signupUser = async (formData: FormData, userType: "patient" | "doct
     }
   }
   
-  // Return the JSON data for a successful response
+ 
   return await response.json();
 };
 
