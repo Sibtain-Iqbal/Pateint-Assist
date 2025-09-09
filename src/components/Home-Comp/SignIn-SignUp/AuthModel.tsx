@@ -1,9 +1,8 @@
   import { useState } from "react";
   import { Heart, Mail, Lock, User, Stethoscope, UserCheck, Phone, MapPin, Calendar } from "lucide-react";
-  import { useNavigate } from "react-router-dom";
+  import { Link, useNavigate } from "react-router-dom";
   import { toast } from "react-toastify";
   import { signupUser, signinUser } from "../../../ApiServices/Api"; // Import the API functions
-
   interface AuthModalProps {
     isOpen: boolean;
     onClose: () => void;
@@ -198,6 +197,14 @@
                       />
                     </div>
                   </div>
+                  <p className="py-1">
+                  <Link
+                   
+                  to="/forgetPass"
+                  onClick={onClose}
+                  className="text-blue-600 font-bold text-sm">
+                  Forget Password ?</Link>
+                  </p>
                   <button
                     type="submit"
                     disabled={loading}

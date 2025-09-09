@@ -14,6 +14,8 @@ import { Footer } from "./components/Home-Comp/Pages/Footer";
 import MedicalSpecialties from "./components/Home-Comp/Pages/MedicalSpecialties";
 import Doctors from "./components/Home-Comp/Pages/FindDoctor";
 import Home from "./components/Home-Comp/ui/Home";
+import ForgetPassword from "./components/Home-Comp/SignIn-SignUp/ForgetPassword";
+
 
 import ProtectedRoutes from "./components/ProtectedRoutes/ProtectedRoutes";
 
@@ -35,13 +37,15 @@ function App() {
             <Route path="/signup" element={<SignUpPage />} />
             <Route path="/find-your-doctor" element={<Doctors />} />
             <Route path="/medical-specialties" element={<MedicalSpecialties />} />
-
+            <Route path="/forgetPass" element={<ForgetPassword />} />
+           
             <Route element={<ProtectedRoutes />}>
               {/* NOTE the /* here */}
+              
               <Route path="/doctor-dashboard/*" element={<DoctorDashboard />} />
               <Route path="/patient-dashboard/*" element={<PatientDashboard />} />
             </Route>
-
+        
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </main>

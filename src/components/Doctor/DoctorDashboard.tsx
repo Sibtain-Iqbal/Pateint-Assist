@@ -1,7 +1,7 @@
 // components/Doctor/DoctorDashboard.tsx
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useState } from "react";
-import Sidebar from "./Layout/Sidebar";
+import Sidebar from "./Layout/Header";
 import Header from "./Layout/Header";
 import Overview from "../../Pages/Doctor/Overview";
 import Appointments from "../../Pages/Doctor/Appointments";

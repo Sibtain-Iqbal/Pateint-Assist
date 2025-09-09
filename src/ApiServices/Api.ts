@@ -53,3 +53,30 @@ export const signinUser = async (credentials: object, userType: "patient" | "doc
   }
   return await response.json();
 };
+
+// Forget Password
+export const patientForgetPassword = async (email: string) => {
+  return await fetch("http://localhost:5000/api/v1/patient/forgetPass", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email }),
+  }).then((res) => res.json());
+};
+
+// Verify Otp
+export const patientVerifyOtp = async (email: string, otp: string) => {
+  return await fetch("http://localhost:5000/api/v1/patient/verifyOtp", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email, otp }),
+  }).then((res) => res.json());
+};
+
+// Reset Password
+export const patientResetPassword = async (email: string, newPassword: string) => {
+  return await fetch("http://localhost:5000/api/v1/patient/resetPassword", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email, newPassword }),
+  }).then((res) => res.json());
+};
