@@ -1,25 +1,26 @@
 import React, { useState, useRef } from "react";
 
-interface ProfileProps {
+interface PatientProfileProps {
   profile: {
     fullName: string;
     email: string;
     phone: string;
-    specialization: string;
-    experience: string;
-    clinicAddress: string;
+    age: string;
+    gender: string;
+    bloodGroup: string;
+    medicalHistory: string;
+    address: string;
     profileImage: string;
   };
   onUpdate: (updatedProfile: any) => void;
 }
 
-const Profile: React.FC<ProfileProps> = ({ profile, onUpdate }) => {
+const PatientProfile: React.FC<PatientProfileProps> = ({ profile, onUpdate }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [updatedProfile, setUpdatedProfile] = useState(profile);
-
   const fileInputRef = useRef<HTMLInputElement | null>(null);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setUpdatedProfile({
       ...updatedProfile,
       [e.target.name]: e.target.value,
@@ -29,7 +30,7 @@ const Profile: React.FC<ProfileProps> = ({ profile, onUpdate }) => {
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
-      const imageUrl = URL.createObjectURL(file); // preview
+      const imageUrl = URL.createObjectURL(file);
       setUpdatedProfile({
         ...updatedProfile,
         profileImage: imageUrl,
@@ -63,7 +64,6 @@ const Profile: React.FC<ProfileProps> = ({ profile, onUpdate }) => {
             </div>
           )}
         </div>
-
         {/* Hidden file input */}
         <input
           type="file"
@@ -76,7 +76,7 @@ const Profile: React.FC<ProfileProps> = ({ profile, onUpdate }) => {
         <h2 className="mt-4 text-2xl font-bold text-white">
           {profile.fullName}
         </h2>
-        <p className="text-white/80">{profile.specialization}</p>
+        <p className="text-white/80">{profile.bloodGroup} | {profile.gender}</p>
         <button
           onClick={() => setIsEditing(true)}
           className="mt-4 px-5 py-2 bg-white text-emerald-600 font-medium rounded-lg shadow hover:bg-gray-100 transition-all"
@@ -85,7 +85,7 @@ const Profile: React.FC<ProfileProps> = ({ profile, onUpdate }) => {
         </button>
       </div>
 
-      {/* Profile Info */}
+      {/* Patient Info */}
       <div className="p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
           <p className="text-sm text-gray-500">Email</p>
@@ -96,12 +96,24 @@ const Profile: React.FC<ProfileProps> = ({ profile, onUpdate }) => {
           <p className="font-medium">{profile.phone}</p>
         </div>
         <div>
-          <p className="text-sm text-gray-500">Experience</p>
-          <p className="font-medium">{profile.experience}</p>
+          <p className="text-sm text-gray-500">Age</p>
+          <p className="font-medium">{profile.age}</p>
         </div>
         <div>
-          <p className="text-sm text-gray-500">Clinic Address</p>
-          <p className="font-medium">{profile.clinicAddress}</p>
+          <p className="text-sm text-gray-500">Gender</p>
+          <p className="font-medium">{profile.gender}</p>
+        </div>
+        <div>
+          <p className="text-sm text-gray-500">Blood Group</p>
+          <p className="font-medium">{profile.bloodGroup}</p>
+        </div>
+        <div className="md:col-span-2">
+          <p className="text-sm text-gray-500">Medical History</p>
+          <p className="font-medium">{profile.medicalHistory}</p>
+        </div>
+        <div className="md:col-span-2">
+          <p className="text-sm text-gray-500">Address</p>
+          <p className="font-medium">{profile.address}</p>
         </div>
       </div>
 
@@ -109,15 +121,16 @@ const Profile: React.FC<ProfileProps> = ({ profile, onUpdate }) => {
       {isEditing && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 animate-fadeIn">
           <div className="bg-white p-6 rounded-2xl shadow-2xl w-full max-w-md relative">
-            <h3 className="text-lg font-semibold mb-4">Update Profile</h3>
+            <h3 className="text-lg font-semibold mb-4">Update Patient Profile</h3>
             <form onSubmit={handleSubmit} className="space-y-3">
               {[
                 "fullName",
                 "email",
                 "phone",
-                "specialization",
-                "experience",
-                "clinicAddress",
+                "age",
+                "gender",
+                "bloodGroup",
+                "address",
               ].map((field) => (
                 <input
                   key={field}
@@ -129,6 +142,14 @@ const Profile: React.FC<ProfileProps> = ({ profile, onUpdate }) => {
                   className="w-full border border-gray-300 p-2 rounded-lg focus:ring-2 focus:ring-emerald-400 focus:outline-none transition"
                 />
               ))}
+
+              <textarea
+                name="medicalHistory"
+                placeholder="Medical History"
+                value={updatedProfile.medicalHistory}
+                onChange={handleChange}
+                className="w-full border border-gray-300 p-2 rounded-lg focus:ring-2 focus:ring-emerald-400 focus:outline-none transition"
+              />
 
               <div className="flex justify-end space-x-3 mt-4">
                 <button
@@ -153,4 +174,4 @@ const Profile: React.FC<ProfileProps> = ({ profile, onUpdate }) => {
   );
 };
 
-export default Profile;
+export default PatientProfile;
