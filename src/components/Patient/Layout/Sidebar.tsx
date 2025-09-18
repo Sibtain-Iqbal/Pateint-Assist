@@ -3,6 +3,7 @@ import { FaHome, FaCalendarCheck, FaUsers, FaClock, FaUser, FaSignOutAlt } from 
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useState } from "react";
+import CustomButton from "@/components/Comman/CustomButton";
 
 const Sidebar = () => {
   const location = useLocation();
@@ -53,12 +54,12 @@ const Sidebar = () => {
         </nav>
       </div>
 
-      <button
+      <CustomButton
         onClick={handlelogout}
-        className="flex items-center gap-3 px-3 py-2 rounded-xl bg-emerald-800 border hover:bg-red-600 transition text-white shadow-md"
+        className="flex items-center gap-3 px-3 py-2 rounded-xl bg-black border hover:bg-red-600 transition text-white shadow-md"
       >
         <FaSignOutAlt /> Logout
-      </button>
+      </CustomButton>
     </div>
   );
 };

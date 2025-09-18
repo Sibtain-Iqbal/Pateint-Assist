@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import FeatureCard from "../Home-card-Stats/FeatureCard";
 import CtaSection from "../Home-card-Stats/CtaSection";
 import type { HomeProps } from "../../../Types/Types";
-
+import CustomButton from "@/components/Comman/CustomButton";
 
 import {
     FaUserMd,
@@ -109,14 +109,14 @@ export default function Home({ setShowModal, showModal }: HomeProps) {
 
 
 
-                  <button
+                  <CustomButton
                         onClick={() => setShowModal(true)}
-                        className="bg-[#53aec5] text-white px-4 py-2 rounded hover:bg-blue-600 shadow-2xl "
+                        className="bg-[#53aec5] text-white px-4 py-2 rounded hover:bg-black shadow-2xl "
                     >
                         Getting Started
-                    </button>
-                    <button className=" px-4 py-2 rounded-lg bg-white/30 backdrop-blur-md text-black shadow-lg hover:bg-blue-300 hover:text-red-500"
-                    >Learn More</button>
+                    </CustomButton>
+                    <CustomButton className=" px-4 py-2 rounded-lg bg-white/30 backdrop-blur-md text-black font-bold border shadow-lg hover:bg-black hover:text-white"
+                    >Learn More</CustomButton>
                 </div>
             </section>
             <AuthModal

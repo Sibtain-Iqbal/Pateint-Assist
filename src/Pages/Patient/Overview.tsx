@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import CustomButton from "@/components/Comman/CustomButton";
 const Overview = () => {
   // Mock data for demo
   const [nextAppointment] = useState({
@@ -10,15 +10,14 @@ const Overview = () => {
   });
 
   const [notifications] = useState([
-    "💊 Your prescription has been updated by Dr. Sarah",
-    "📅 Appointment with Dr. John tomorrow at 10:30 AM",
-    "⚠️ Profile is 80% complete. Please update details.",
+    "Your prescription has been updated by Dr. Sarah",
+    "Appointment with Dr. John tomorrow at 10:30 AM",
+    "Profile is 80% complete. Please update details.",
   ]);
 
   return (
     <div className="space-y-6">
       {/* Header */}
-      <h2 className="text-2xl font-bold">Dashboard Overview</h2>
       <p className="text-gray-600">
         Here’s a quick snapshot of your health activities and updates.
       </p>
@@ -40,8 +39,8 @@ const Overview = () => {
         <div className="bg-white shadow rounded-2xl p-6 hover:shadow-lg transition">
           <h3 className="text-gray-500">Profile Completion</h3>
           <p className="text-2xl font-bold">80%</p>
-          <div className="w-full bg-gray-200 rounded-full h-2 mt-2">
-            <div className="bg-blue-600 h-2 rounded-full w-4/5"></div>
+          <div className="w-full bg-gray-200 rounded-full h-2 mt-2 shadow:2xl">
+            <div className="bg-gradient-to-r from-blue-300 to-teal-400 h-2 rounded-full w-4/5"></div>
           </div>
         </div>
       </div>
@@ -56,9 +55,9 @@ const Overview = () => {
           {nextAppointment.date} at {nextAppointment.time}
         </p>
         <p className="text-sm text-gray-400">{nextAppointment.type}</p>
-        <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+        <CustomButton className="w-[200px] mt-4 bg-gradient-to-r from-blue-500 to-teal-400 text-white py-2 px-4 rounded-md hover:opacity-90 transition-opacity">
           View Details
-        </button>
+        </CustomButton>
       </div>
 
       {/* Notifications */}

@@ -5,7 +5,7 @@ import Sidebar from "./Layout/Sidebar";
 import Header from "./Layout/Header";
 import Overview from "../../Pages/Patient/Overview";
 import Appointments from "../../Pages/Patient/Appointments";
-import SearchDoctor from "../../Pages/Patient/SearchDoctors";
+import SearchDoctor from "../../Pages/Patient/SearchDoctor";
 import Profile from "../../Pages/Patient/Profile";
 
 export interface PatientProfile {
@@ -41,7 +41,8 @@ const PatientDashboard = () => {
             <Route index element={<Navigate to="overview" replace />} />
             <Route path="overview" element={<Overview />} />
             <Route path="appointments" element={<Appointments />} />
-            <Route path="searchdoctors" element={<SearchDoctor />} />
+           <Route path="search-doctors" element={<SearchDoctor />} />
+
             {/* <Route path="profile" element={<Profile />} /> */}
             <Route
               path="profile"

@@ -1,8 +1,8 @@
 // src/pages/Appointments.tsx
 const Appointments = () => {
   const appointments = [
-    { id: 1, patient: "Alice", date: "2025-08-22", status: "Pending" },
-    { id: 2, patient: "Bob", date: "2025-08-23", status: "Confirmed" },
+    { id: 1, patient: "Malaika", date: "2025-08-22", status: "Pending" },
+    { id: 2, patient: "Sibtain", date: "2025-08-23", status: "Confirmed" },
   ];
 
   return (
